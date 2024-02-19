@@ -1,14 +1,9 @@
-﻿using Microsoft.SqlServer.Server;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Text.RegularExpressions;
 
-namespace Navire.Classesmetier
+namespace GestionNavire.Classesmetier
 {
-    
+
     internal class Navire
     {
         private string imo;
@@ -18,21 +13,54 @@ namespace Navire.Classesmetier
 
         public Navire(string imo, string nom, string libelleFret, int qteFretMaxi)
         {
-            this.imo = imo;
+            this.Imo = imo;
             this.nom = nom;
             this.libelleFret = libelleFret;
-            this.qteFretMaxi = qteFretMaxi;
+            this.QteFretMaxi = qteFretMaxi;
         }
 
-        public Navire(string imo, string nom):this (imo, nom, "Indéfini", 0) { }
-                   
-            
-        
+        public Navire(string imo, string nom) : this(imo, nom, "Indéfini", 0) { }
 
-        public string Imo { get => imo; set => imo = value; }
+
+
+
+        public string Imo
+        {
+            get => imo;
+            private set
+            {
+                if (Regex.IsMatch(value, @"^[I][M][O][1-9]\d{6}$"))
+                {
+                    this.imo = value;
+                }
+                else
+                {
+                    throw new Exception("erreur : IMO non valide");
+                }
+
+            }
+        }
+
         public string Nom { get => nom; set => nom = value; }
         public string LibelleFret { get => libelleFret; set => libelleFret = value; }
-        public int QteFretMaxi { get => qteFretMaxi; set => qteFretMaxi = value; }
+        public int QteFretMaxi
+        {
+
+            get => qteFretMaxi;
+            set
+            {
+                if (value >= 0)
+                {
+                    this.qteFretMaxi = value;
+                }
+                else
+                {
+                    throw new Exception("Erreur, quantité de fret non valide");
+                }
+            }
+        }
+
+
 
         public override string ToString()
         {
