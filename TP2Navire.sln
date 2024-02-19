@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP2Navire", "TP2Navire\TP2Navire.csproj", "{8965DD66-3627-4369-A284-372C3D745AED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8965DD66-3627-4369-A284-372C3D745AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8965DD66-3627-4369-A284-372C3D745AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8965DD66-3627-4369-A284-372C3D745AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8965DD66-3627-4369-A284-372C3D745AED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8542599-C2EF-4504-9E7C-DA793175A711}
+	EndGlobalSection
+EndGlobal
