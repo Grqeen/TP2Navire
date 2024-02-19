@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionNavire.Exceptions;
+using System;
 using System.Collections.Generic;
 
 namespace GestionNavire.Classesmetier
@@ -21,14 +22,22 @@ namespace GestionNavire.Classesmetier
         // Methods
         public void EnregistrerArrivee(Navire navire)
         {
-            if (this.navires.Count < this.nbNaviresMax && !this.navires.ContainsValue(navire))
+            try
             {
-                this.navires.Add(navire.Imo, navire);
+                if (this.navires.Count < this.nbNaviresMax)
+                {
+                    this.navires.Add(navire.Imo, navire);//add verifie dans le dictionary si le meme navire existe deja
+                }
+                else
+                {
+                    throw new GestionPortException("Ajout impossible, le port est complet");
+                }
             }
-            else
+            catch (ArgumentException)
             {
-                throw new Exception("Ajout impossible, le port est complet");
+                throw new GestionPortException("Le navire " + navire.Imo + " est déjà enregistré");
             }
+            
         }
 
 
@@ -43,7 +52,7 @@ namespace GestionNavire.Classesmetier
             else
             {
                 // le navire n'est pas dans le port
-                throw new Exception("impossible d'enregistrer le départ du navire " + imo + ", il n'est pas dans le port ");
+                throw new GestionPortException("impossible d'enregistrer le départ du navire " + imo + ", il n'est pas dans le port ");
             }
         }
 

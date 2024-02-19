@@ -2,10 +2,10 @@
 
 namespace GestionNavire.Exceptions
 {
-    class GestionPortException
+    class GestionPortException :Exception
     {
         public GestionPortException(string message)
-           : base("Erreur de : " + Environment.UserName + " le " + DateTime.Now.ToLocalTime() +
+           :base("Erreur de : " + System.Environment.UserName + " le " + DateTime.Now.ToLocalTime() +
                 "\n" + message) {}
         
     }

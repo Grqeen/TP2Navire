@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionNavire.Exceptions;
+using System;
 using System.Text.RegularExpressions;
 
 namespace GestionNavire.Classesmetier
@@ -35,7 +36,7 @@ namespace GestionNavire.Classesmetier
                 }
                 else
                 {
-                    throw new Exception("erreur : IMO non valide");
+                    throw new GestionPortException("erreur : IMO non valide");
                 }
 
             }
@@ -55,7 +56,7 @@ namespace GestionNavire.Classesmetier
                 }
                 else
                 {
-                    throw new Exception("Erreur, quantité de fret non valide");
+                    throw new GestionPortException("Erreur, quantité de fret non valide");
                 }
             }
         }
