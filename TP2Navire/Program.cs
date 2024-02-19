@@ -20,9 +20,9 @@ namespace GestionNavire.Application
             {
                 Console.WriteLine(ex.Message);
             }
-
-
-            Console.ReadKey();
+            finally { Console.ReadKey(); }
+            
+            
         }
 
         public static void TesterInstanciations()
@@ -102,8 +102,8 @@ namespace GestionNavire.Application
             {
                 Navire navire = new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827);
                 navire = new Navire("IMO9839272", "MSC Isabella", "Porte-conteneurs", 197500);
-                navire = new Navire("IMO8715871", "MSC PILAR", "Porte-conteneurs", 67183);
-                navire = new Navire("IMO9235232", " FORTUNE TRADER", "Cargo", 74750);
+                navire = new Navire("IMO8715871", "MSC PILAR");
+                navire = new Navire("IMO9235232", " FORTUNE TRADER");
                 navire = new Navire("IMO9574004", "TRITON SEAHAWK", "Hydrocarbures", 51201);
                 
             }

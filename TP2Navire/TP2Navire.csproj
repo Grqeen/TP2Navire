@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionPortException.cs" />
     <Compile Include="Navire.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
