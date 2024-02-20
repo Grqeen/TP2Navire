@@ -68,13 +68,13 @@ namespace GestionNavire.Classesmetier
             get => qteFret; 
             private set
             {
-                if(value >= 0 && value > qteFretMaxi)
+                if(value >= 0 && value < qteFretMaxi)
                 {
                     this.qteFret = value;
                 }
                 else
                 {
-                    throw new GestionPortException("Impossible , quantité de fret a bord impossible ");
+                    throw new GestionPortException("Valeur incohérente pour la quantite de fret stockée dans le navire  ");
                 }
             }
 
@@ -96,7 +96,7 @@ namespace GestionNavire.Classesmetier
             {
                 throw new GestionPortException("la quantité à décharger ne peux être négative ou nulle");
             }
-            else if (quantite < this.QteFret)
+            else if (quantite > this.QteFretMaxi)
             {
                 throw new GestionPortException("Impossible de decharger plus que la quantité de fret dans le navire");
             }

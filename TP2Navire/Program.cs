@@ -17,18 +17,18 @@ namespace GestionNavire.Application
                 //TesterEnregistrerDepart();
                 //TesterEstPresent();
                 port = new Port("Toulon");
-                //Instanciations();
-                try { TesterEnregistrerArrivee(); }
-                catch (GestionPortException ex)
-                { Console.WriteLine(ex.Message); }
+                Instanciations();
+                //try { TesterEnregistrerArrivee(); }
+                //catch (GestionPortException ex)
+                //{ Console.WriteLine(ex.Message); }
 
-                try { TesterEnregistrerArriveeV2(); }
-                catch (GestionPortException ex)
-                { Console.WriteLine(ex.Message); }
+                //try { TesterEnregistrerArriveeV2(); }
+                //catch (GestionPortException ex)
+                //{ Console.WriteLine(ex.Message); }
 
-                try { TesterEnregistrerDepart(); }
-                catch (GestionPortException ex)
-                { Console.WriteLine(ex.Message); }
+                //try { TesterEnregistrerDepart(); }
+                //catch (GestionPortException ex)
+                //{ Console.WriteLine(ex.Message); }
 
                 Console.WriteLine("Fin normale du programme");
             }
@@ -46,12 +46,12 @@ namespace GestionNavire.Application
             // declaration de l'objet unNavire de la classe Navire
             Navire unNavire;
             // Instantiation de l'objet
-            unNavire = new Navire("IM09427639", "Copper Spirit", "Hydrocarbures", 156827);
+            unNavire = new Navire("IM09427639", "Copper Spirit", "Hydrocarbures", 156827 , 15);
             Affiche(unNavire);
             Console.WriteLine("--------------------------");
 
             // Declaration ET instantiation d'un autre objet de la classe Navire
-            Navire unAutreNavire = new Navire("IM09839272", "MSC Isabella", "Porte-conteneurs", 197500);
+            Navire unAutreNavire = new Navire("IM09839272", "MSC Isabella", "Porte-conteneurs", 197500 , 12);
             Affiche(unAutreNavire);
             Console.WriteLine("--------------------------");
 
@@ -80,8 +80,8 @@ namespace GestionNavire.Application
         public static void TesterEstPresent()
         {
             Port port = new Port("Toulon");
-            port.EnregistrerArrivee(new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827));
-            port.EnregistrerArrivee(new Navire("IMO9839272", "MSC Isabella", "Porte-conteneurs", 197500));
+            port.EnregistrerArrivee(new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827 , 6));
+            port.EnregistrerArrivee(new Navire("IMO9839272", "MSC Isabella", "Porte-conteneurs", 197500, 9));
             port.EnregistrerArrivee(new Navire("IMO8715871", "MSC PILAR"));
             String imo = "IMO9427639";
             Console.WriteLine("Le navire " + imo + " est présent dans le port : " + port.EstPresent(imo));
@@ -93,11 +93,11 @@ namespace GestionNavire.Application
         {
             try
             {
-                Navire navire = new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827);
-                navire = new Navire("IMO9839272", "MSC Isabella", "Porte-conteneurs", 197500);
-                navire = new Navire("XMO8715871", "MSC PILAR");
+                Navire navire = new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827 , 7);
+                navire = new Navire("IMO9839272", "MSC Isabella", "Porte-conteneurs", 197500 , 9);
+                navire = new Navire("IMO8715871", "MSC PILAR");
                 navire = new Navire("IMO9235232", " FORTUNE TRADER");
-                navire = new Navire("IMO9574004", "TRITON SEAHAWK", "Hydrocarbures", 51201);
+                navire = new Navire("IMO9574004", "TRITON SEAHAWK", "Hydrocarbures", 51201 , 2);
 
             }
             catch (GestionPortException ex)
@@ -112,9 +112,9 @@ namespace GestionNavire.Application
             Navire navire = null;
             try
             {
-                navire = new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827);
+                navire = new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827, 8);
                 port.EnregistrerArrivee(navire);
-                navire = new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827);
+                navire = new Navire("IMO9427639", "Copper Spirit", "Hydrocarbures", 156827 ,9 );
                 port.EnregistrerArrivee(navire);
             }
             catch (GestionPortException ex)
@@ -130,12 +130,12 @@ namespace GestionNavire.Application
             Navire navire = null;
             try
             {
-                port.EnregistrerArrivee(new Navire("IMO9839272", "MSC Isabella", "Porte-conteneurs", 197500));
+                port.EnregistrerArrivee(new Navire("IMO9839272", "MSC Isabella", "Porte-conteneurs", 197500, 5));
                 port.EnregistrerArrivee(new Navire("IMO8715871", "MSC PILAR"));
-                port.EnregistrerArrivee(new Navire("IMO9235232", "FORTUNE TRADER", "Cargo", 74750));
-                port.EnregistrerArrivee(new Navire("IMO9405423", "SERENEA", "Tanker", 158583));
-                port.EnregistrerArrivee(new Navire("IMO9574004", "TRITON SEAHAWK", "Hydrocarbures", 51201));
-                port.EnregistrerArrivee(new Navire("IMO9748681", "NORDIC SPACE", "Tanker", 157587));
+                port.EnregistrerArrivee(new Navire("IMO9235232", "FORTUNE TRADER", "Cargo", 74750 , 6 ));
+                port.EnregistrerArrivee(new Navire("IMO9405423", "SERENEA", "Tanker", 158583, 7));
+                port.EnregistrerArrivee(new Navire("IMO9574004", "TRITON SEAHAWK", "Hydrocarbures", 51201 , 8));
+                port.EnregistrerArrivee(new Navire("IMO9748681", "NORDIC SPACE", "Tanker", 157587, 9 ));
             }
             catch (GestionPortException ex)
             {
