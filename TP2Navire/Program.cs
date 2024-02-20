@@ -16,8 +16,8 @@ namespace GestionNavire.Application
                 //TesterEnregistrerArrivee();          
                 //TesterEnregistrerDepart();
                 //TesterEstPresent();
-                port = new Port("Toulon");
-                Instanciations();
+                //port = new Port("Toulon");
+                ////Instanciations();
                 //try { TesterEnregistrerArrivee(); }
                 //catch (GestionPortException ex)
                 //{ Console.WriteLine(ex.Message); }
@@ -29,6 +29,8 @@ namespace GestionNavire.Application
                 //try { TesterEnregistrerDepart(); }
                 //catch (GestionPortException ex)
                 //{ Console.WriteLine(ex.Message); }
+
+                TesterInstanciationsStockage();
 
                 Console.WriteLine("Fin normale du programme");
             }
@@ -163,7 +165,30 @@ namespace GestionNavire.Application
             }
         }
 
-       
+        public static void TesterInstanciationsStockage()
+        {
+            try
+            { new Stockage(1, 15000); }
+            catch (GestionPortException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            try 
+            { new Stockage(2, 12000, 10000); }
+            catch ( GestionPortException ex)
+            { Console.WriteLine(ex.Message); }
+            try
+            { new Stockage(3, -25000, -10000); }
+            catch (GestionPortException ex)
+            { Console.WriteLine(ex.Message); }
+            try
+            { new Stockage(4, 15000, 20000); }
+            catch(GestionPortException ex)
+            { Console.WriteLine(ex.Message); }
+
+
+            
+        }
 
     }
 

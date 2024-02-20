@@ -68,7 +68,7 @@ namespace GestionNavire.Classesmetier
             get => qteFret; 
             private set
             {
-                if(value >= 0 && value < qteFretMaxi)
+                if(value >= 0 && value <= qteFretMaxi)
                 {
                     this.qteFret = value;
                 }

@@ -10,12 +10,14 @@ namespace GestionNavire.Classesmetier
         private readonly string nom;
         private int nbNaviresMax = 5;
         private Dictionary<string, Navire> navires;
+        private List<Stockage> stockages;
 
         //constructeur
         public Port(string nom)
         {
             this.nom = nom;
             navires = new Dictionary<string, Navire>();
+            this.stockages = new List<Stockage>();
         }
 
         internal Dictionary<string, Navire> Navires { get => navires; }
@@ -70,7 +72,27 @@ namespace GestionNavire.Classesmetier
             return this.navires.ContainsKey(imo);
         }
 
-        
+        public void Dechargement(String imo)
+        {
+            bool index = EstPresent(imo);
+            if (index)
+            {
+
+            }
+        }
+
+        public void AjoutStockage(Stockage stockage)
+        {
+            stockages.Add(stockage);
+        }
+
+        public void GetNavire(String imo)
+        {
+
+        }
+
+
+
 
 
     }
