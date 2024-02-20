@@ -10,17 +10,19 @@ namespace GestionNavire.Classesmetier
         private string nom;
         private string libelleFret;
         private int qteFretMaxi;
+        private int qteFret;
         
 
-        public Navire(string imo, string nom, string libelleFret, int qteFretMaxi)
+        public Navire(string imo, string nom, string libelleFret, int qteFretMaxi, int qteFret)
         {
             this.Imo = imo;
             this.nom = nom;
             this.libelleFret = libelleFret;
             this.QteFretMaxi = qteFretMaxi;
+            this.QteFret = qteFret;
         }
 
-        public Navire(string imo, string nom) : this(imo, nom, "Indéfini", 0) { }
+        public Navire(string imo, string nom) : this(imo, nom, "Indéfini", 0, 0) { }
 
 
 
@@ -60,12 +62,54 @@ namespace GestionNavire.Classesmetier
                 }
             }
         }
+        public int QteFret 
+        {
+            
+            get => qteFret; 
+            private set
+            {
+                if(value >= 0 && value > qteFretMaxi)
+                {
+                    this.qteFret = value;
+                }
+                else
+                {
+                    throw new GestionPortException("Impossible , quantité de fret a bord impossible ");
+                }
+            }
+
+
+        
+        
+        }
 
 
 
         public override string ToString()
         {
             return "Identification  : " + this.imo + "\nNom :  " + this.nom + "\nType de frêt  : " + this.libelleFret + "\nQuantité de Frêt :" + this.qteFretMaxi;
+        }
+
+        public void Decharger(int quantite)
+        {
+            if (quantite < 0)
+            {
+                throw new GestionPortException("la quantité à décharger ne peux être négative ou nulle");
+            }
+            else if (quantite < this.QteFret)
+            {
+                throw new GestionPortException("Impossible de decharger plus que la quantité de fret dans le navire");
+            }
+            else
+            {
+                this.qteFret -= quantite;
+            }
+
+        }
+
+        public bool EstDecharge()
+        {
+            return this.qteFret == 0;
         }
     }
 }

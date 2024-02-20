@@ -1,6 +1,7 @@
 ﻿using GestionNavire.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace GestionNavire.Classesmetier
 {
@@ -69,6 +70,7 @@ namespace GestionNavire.Classesmetier
             return this.navires.ContainsKey(imo);
         }
 
+        
 
 
     }
