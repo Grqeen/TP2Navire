@@ -77,6 +77,7 @@ namespace GestionNavire.Classesmetier
             bool index = EstPresent(imo);
             if (index)
             {
+                
 
             }
         }
@@ -86,9 +87,15 @@ namespace GestionNavire.Classesmetier
             stockages.Add(stockage);
         }
 
-        public void GetNavire(String imo)
+        public Navire GetNavire(String imo)
         {
-
+            if (navires.ContainsKey(imo)){
+                return navires[imo];
+            }
+            else
+            {
+                return null;
+            }
         }
 
 
