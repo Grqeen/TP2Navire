@@ -1,5 +1,4 @@
 ﻿using GestionNavire.Exceptions;
-using System;
 using System.Text.RegularExpressions;
 
 namespace GestionNavire.Classesmetier
@@ -11,6 +10,7 @@ namespace GestionNavire.Classesmetier
         private string nom;
         private string libelleFret;
         private int qteFretMaxi;
+        
 
         public Navire(string imo, string nom, string libelleFret, int qteFretMaxi)
         {
