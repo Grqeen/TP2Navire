@@ -11,7 +11,7 @@ namespace GestionNavire.Classesmetier
         private string libelleFret;
         private int qteFretMaxi;
         private int qteFret;
-        
+
 
         public Navire(string imo, string nom, string libelleFret, int qteFretMaxi, int qteFret)
         {
@@ -62,13 +62,13 @@ namespace GestionNavire.Classesmetier
                 }
             }
         }
-        public int QteFret 
+        public int QteFret
         {
-            
-            get => qteFret; 
+
+            get => qteFret;
             private set
             {
-                if(value >= 0 && value <= qteFretMaxi)
+                if (value >= 0 && value <= qteFretMaxi)
                 {
                     this.qteFret = value;
                 }
@@ -79,8 +79,8 @@ namespace GestionNavire.Classesmetier
             }
 
 
-        
-        
+
+
         }
 
 
