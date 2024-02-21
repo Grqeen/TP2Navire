@@ -1,7 +1,9 @@
 ﻿using GestionNavire.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
+using System.Xml;
 
 namespace GestionNavire.Classesmetier
 {
@@ -75,8 +77,7 @@ namespace GestionNavire.Classesmetier
         public void Dechargement(String imo)
         {
             Navire navire = GetNavire(imo);
-            bool index = EstPresent(imo);
-            if (!index)
+            if (!EstPresent(imo))
             {
                 throw new GestionPortException("Impossible , Le navire n'est pas dans le port");
             }
@@ -87,11 +88,23 @@ namespace GestionNavire.Classesmetier
             else
             {
                 int i = 0;
-                while (navire.QteFret != 0)
+                while (navire.QteFret > 0 && i < stockages.Count)
                 {
-                    navire.Decharger(this.stockages[i].CapaciteDispo);
-                    navire.Decharger(navire.QteFret);
+                    int stockageadechargee = GetCountdispoStockage(navire.QteFret, stockages[i].CapaciteDispo);
+
+                    stockages[i].Stocker(stockageadechargee);                   
+                    navire.Decharger(stockageadechargee);
+
+                    i++;
+
+                   
                 }
+
+                if (navire.QteFret > 0)
+                {
+                    throw new GestionPortException("Le navire " + imo + " n'a pas pu être entièrement déchargé, il reste " + navire.QteFret + " tonnes");
+                }
+
             }
 
         }
@@ -113,7 +126,18 @@ namespace GestionNavire.Classesmetier
             }
         }
 
+        public int GetCountdispoStockage(int quantiteFret, int capaciteDispo )
+        {
+            if (quantiteFret <= capaciteDispo)
+            {
+                return quantiteFret;
 
+            }
+            else
+            {
+                return capaciteDispo;
+            }
+        }
 
 
     }

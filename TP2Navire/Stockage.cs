@@ -59,7 +59,7 @@ namespace GestionNavire.Classesmetier
 
         public void Stocker(int quantite)
         {
-            if (quantite > 0)
+            if (quantite >= 0)
             {
                 this.capaciteDispo -= quantite;
             }
